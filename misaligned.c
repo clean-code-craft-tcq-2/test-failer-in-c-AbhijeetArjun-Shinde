@@ -1,12 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
 
-typedef struct {
-    char majorColor[20];
-    char minorColor[20];
-    int PairNum;
-} ColorPair[25];
-
 int printColorMap() {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
     const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
@@ -21,7 +15,7 @@ int printColorMap() {
 
 int main() {
     int result = printColorMap();
-    assert(result == 24);
+    assert(result == 23);
     printf("All is well (maybe!)\n");
     return 0;
 }
