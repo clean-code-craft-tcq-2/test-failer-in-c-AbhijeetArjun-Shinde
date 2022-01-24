@@ -2,17 +2,18 @@
 #include <assert.h>
 
 #define MAX_TEMP_THRESHOLD_CEL 180
+#define MIN_TEMP_THRESHOLD_CEL 150
 
 int alertFailureCount = 0;
 int NumOfAlertInCelciusFuncCalls =0;
 
 int networkAlertStub(float celcius) {
     printf("ALERT: Temperature is %.1f celcius.\n", celcius);
-    if(celcius > MAX_TEMP_THRESHOLD_CEL){
-        return 500;
+    if((celcius >= MIN_TEMP_THRESHOLD_CEL) && (celcius <= MAX_TEMP_THRESHOLD_CEL)){
+        return 200;
     }
     else{
-        return 200;
+        return 500;
     }
     // Return 200 for ok
     // Return 500 for not-ok
@@ -27,8 +28,7 @@ void alertInCelcius(float farenheit) {
         // let us keep a count of failures to report
         // However, this code doesn't count failures!
         // Add a test below to catch this bug. Alter the stub above, if needed.
-        alertFailureCount += 0;
-        
+        alertFailureCount += 0;      
     }
     NumOfAlertInCelciusFuncCalls++;
 }
