@@ -4,6 +4,7 @@
 #define MAX_TEMP_THRESHOLD_CEL 180
 
 int alertFailureCount = 0;
+int NumOfAlertInCelciusFuncCalls =0;
 
 int networkAlertStub(float celcius) {
     printf("ALERT: Temperature is %.1f celcius.\n", celcius);
@@ -16,7 +17,6 @@ int networkAlertStub(float celcius) {
     // Return 200 for ok
     // Return 500 for not-ok
     // stub always succeeds and returns 200
-    return 200;
 }
 
 void alertInCelcius(float farenheit) {
@@ -30,11 +30,13 @@ void alertInCelcius(float farenheit) {
         alertFailureCount += 0;
         assert(alertFailureCount == (alertFailureCount+1));
     }
+    NumOfAlertInCelciusFuncCalls++;
 }
 
 int main() {
     alertInCelcius(400.5);
     alertInCelcius(303.6);
+    assert(NumOfAlertInCelciusFuncCalls==2);
     printf("%d alerts failed.\n", alertFailureCount);
     printf("All is well (maybe!)\n");
     return 0;
