@@ -9,7 +9,15 @@ int PrintConsoleFuncCalls =0 ;
 int mismatch =0;
 char ActualColorGuide[25][2];
 
-
+void ActualColorMap() {
+    int i = 0, j = 0;
+    for(i = 0; i < 5; i++) {
+        for(j = 0; j < 5; j++) {
+         ActualColorGuide[i+j][0]=majorColor[i];  
+         ActualColorGuide[i+j][1]=minorColor[j];
+        }
+    }
+}
 
 void PrintStringMaker( int MajorColorId , int MinorColorId);
 void PrintOnConsole(int PairNum, const char *MajorColor, const char *MinorColor);
@@ -27,7 +35,7 @@ int printColorMap() {
 void PrintStringMaker( int MajorColorId , int MinorColorId){
     PrintOnConsole( (MajorColorId*5+ MinorColorId) , majorColor[MajorColorId] , minorColor[MajorColorId]);
     StringMakerFuncCalls+=1;
-        if(((MajorColorId*5+ MinorColorId) <=0 || (MajorColorId*5+ MinorColorId) >25)){
+        if(((MajorColorId*5+ MinorColorId) <=0 || (MajorColorId*5+ MinorColorId) >25) || (majorColor[MajorColorId] != ActualColorGuide[MajorColorId*5+ MinorColorId][0]) || (minorColor[MajorColorId]!=ActualColorGuide[MajorColorId*5+ MinorColorId][1])){
              mismatch = 1;
          }
     }
