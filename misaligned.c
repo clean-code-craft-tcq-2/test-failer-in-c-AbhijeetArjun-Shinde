@@ -5,28 +5,28 @@ int StringMakerFuncCalls =0 ;
 int PrintConsoleFuncCalls =0 ;
 int mismatch =0;
 
-int PrintStringMaker( int MajorColorId , int MinorColorId);
+void PrintStringMaker( int MajorColorId , int MinorColorId);
 void PrintOnConsole(int PairNum, const char *MajorColor, const char *MinorColor);
 
 int printColorMap() {
     int i = 0, j = 0;
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
-         int PairNum = PrintStringMaker(i,j); 
-         if((PairNum <=0 || PairNum >25)){
-             mismatch = 1;
-         }
+         PrintStringMaker(i,j); 
+        
         }
     }
     return i * j;
 }
 
-int PrintStringMaker( int MajorColorId , int MinorColorId){
+void PrintStringMaker( int MajorColorId , int MinorColorId){
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
     const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
     PrintOnConsole( (MajorColorId*5+ MinorColorId) , majorColor[MajorColorId] , minorColor[MajorColorId]);
     StringMakerFuncCalls+=1;
-    return (MajorColorId*5+ MinorColorId);
+     if((PairNum <=0 || PairNum >25) || (majorColor[MajorColorId] != majorColor[MajorColorId]) || (minorColor[MinorColorId] !=minorColor[MajorColorId])){
+             mismatch = 1;
+         }
     }
 
 void PrintOnConsole(int PairNum,const char *MajorColor ,const char *MinorColor){
