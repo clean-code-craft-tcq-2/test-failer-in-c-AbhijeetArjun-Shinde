@@ -7,7 +7,7 @@ const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
 int StringMakerFuncCalls =0 ;
 int PrintConsoleFuncCalls =0 ;
 int mismatch =0;
-char ActualColorGuide[25][2];
+char *ActualColorGuide[25][2];
 
 void ActualColorMap() {
     int i = 0, j = 0;
