@@ -5,7 +5,7 @@ int StringMakerFuncCalls =0 ;
 int PrintConsoleFuncCalls =0 ;
 
 void PrintStringMaker( int MajorColorId , int MinorColorId);
-void PrintOnConsole(int PairNum, int MajorColorId , int MinorColorId);
+void PrintOnConsole(int PairNum, char *MajorColor , char *MinorColor);
 
 int printColorMap() {
     int i = 0, j = 0;
