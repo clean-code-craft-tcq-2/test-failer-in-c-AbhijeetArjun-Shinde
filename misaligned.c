@@ -13,7 +13,7 @@ int printColorMap() {
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
          int PairNum = PrintStringMaker(i,j); 
-         if((PairNum <=0 && PairNum >25){
+         if((PairNum <=0 || PairNum >25)){
              mismatch = 1;
          }
         }
