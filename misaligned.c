@@ -24,7 +24,7 @@ void PrintStringMaker( int MajorColorId , int MinorColorId){
     const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
     PrintOnConsole( (MajorColorId*5+ MinorColorId) , majorColor[MajorColorId] , minorColor[MajorColorId]);
     StringMakerFuncCalls+=1;
-     if((PairNum <=0 || PairNum >25) || (majorColor[MajorColorId] != majorColor[MajorColorId]) || (minorColor[MinorColorId] !=minorColor[MajorColorId])){
+     if(((MajorColorId*5+ MinorColorId) <=0 || (MajorColorId*5+ MinorColorId) >25) || (majorColor[MajorColorId] != majorColor[MajorColorId]) || (minorColor[MinorColorId] !=minorColor[MajorColorId])){
              mismatch = 1;
          }
     }
