@@ -20,7 +20,7 @@ int printColorMap() {
 void PrintStringMaker( int MajorColorId , int MinorColorId){
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
     const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
-    PrintOnConsole( (MajorColorId*5+ MinorColorId) , &majorColor[MajorColorId] , &minorColor[MajorColorId]);
+    PrintOnConsole( (MajorColorId*5+ MinorColorId) , majorColor[MajorColorId] , minorColor[MajorColorId]);
     StringMakerFuncCalls+=1;
     }
 void PrintOnConsole(int PairNum, char *MajorColor , char *MinorColor){
