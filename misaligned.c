@@ -12,7 +12,7 @@ int printColorMap() {
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
          int PairNum = PrintStringMaker(i,j); 
-         assert ( (PairNum >=0 && PairNum <=25));
+         assert ( (PairNum > 0 && PairNum <=25));
         }
     }
     return i * j;
