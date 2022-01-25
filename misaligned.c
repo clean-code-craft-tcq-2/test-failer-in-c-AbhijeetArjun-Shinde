@@ -5,7 +5,7 @@ int StringMakerFuncCalls =0 ;
 int PrintConsoleFuncCalls =0 ;
 
 void PrintStringMaker( int MajorColorId , int MinorColorId);
-void PrintOnConsole(int PairNum, char *MajorColor , char *MinorColor);
+void PrintOnConsole(int PairNum, char MajorColor[] , char MinorColor[]);
 
 int printColorMap() {
     int i = 0, j = 0;
@@ -23,7 +23,7 @@ void PrintStringMaker( int MajorColorId , int MinorColorId){
     PrintOnConsole( (MajorColorId*5+ MinorColorId) , majorColor[MajorColorId] , minorColor[MajorColorId]);
     StringMakerFuncCalls+=1;
     }
-void PrintOnConsole(int PairNum, char *MajorColor , char *MinorColor){
+void PrintOnConsole(int PairNum, char MajorColor[] , char MinorColor[]){
     printf("%d | %s | %s\n",PairNum, MajorColor, MinorColor);
     PrintConsoleFuncCalls +=1;
 }
