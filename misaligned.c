@@ -3,7 +3,7 @@
 
 int StringMakerFuncCalls =0 ;
 int PrintConsoleFuncCalls =0 ;
-int PairNum = 0;
+int mismatch =0;
 
 int PrintStringMaker( int MajorColorId , int MinorColorId);
 void PrintOnConsole(int PairNum, const char *MajorColor, const char *MinorColor);
@@ -12,8 +12,10 @@ int printColorMap() {
     int i = 0, j = 0;
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
-         int PairNum = PrintStringMaker(i,j); 
-         
+         int PairNum[i*5+j] = PrintStringMaker(i,j); 
+         if((PairNum <=0 && PairNum >25){
+             mismatch = 1;
+         }
         }
     }
     return i * j;
@@ -35,7 +37,7 @@ void PrintOnConsole(int PairNum,const char *MajorColor ,const char *MinorColor){
 int main() {
     int result = printColorMap();
     assert(result == 25);
-    assert ( (PairNum > 0 && PairNum <=25));
+    assert ( mismatch ==0);
     assert(StringMakerFuncCalls == 25);
     assert(PrintConsoleFuncCalls == 25);
     printf("All is well (maybe!)\n");
