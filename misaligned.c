@@ -1,9 +1,15 @@
 #include <stdio.h>
 #include <assert.h>
 
+const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
+const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
+
 int StringMakerFuncCalls =0 ;
 int PrintConsoleFuncCalls =0 ;
 int mismatch =0;
+char ActualColorGuide[][];
+
+
 
 void PrintStringMaker( int MajorColorId , int MinorColorId);
 void PrintOnConsole(int PairNum, const char *MajorColor, const char *MinorColor);
@@ -12,19 +18,16 @@ int printColorMap() {
     int i = 0, j = 0;
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
-         PrintStringMaker(i,j); 
-        
+         PrintStringMaker(i,j);  
         }
     }
     return i * j;
 }
 
 void PrintStringMaker( int MajorColorId , int MinorColorId){
-    const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
-    const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
     PrintOnConsole( (MajorColorId*5+ MinorColorId) , majorColor[MajorColorId] , minorColor[MajorColorId]);
     StringMakerFuncCalls+=1;
-     if(((MajorColorId*5+ MinorColorId) <=0 || (MajorColorId*5+ MinorColorId) >25) || (majorColor[MajorColorId] != majorColor[MajorColorId]) || (minorColor[MinorColorId] !=minorColor[MajorColorId])){
+        if(((MajorColorId*5+ MinorColorId) <=0 || (MajorColorId*5+ MinorColorId) >25)){
              mismatch = 1;
          }
     }
