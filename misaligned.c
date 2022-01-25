@@ -3,7 +3,7 @@
 
 int StringMakerFuncCalls =0 ;
 int PrintConsoleFuncCalls =0 ;
-int PairNum = 0
+int PairNum = 0;
 
 int PrintStringMaker( int MajorColorId , int MinorColorId);
 void PrintOnConsole(int PairNum, const char *MajorColor, const char *MinorColor);
