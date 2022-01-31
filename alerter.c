@@ -39,7 +39,8 @@ void alertInCelcius(float farenheit, int (*Func_Ptr_NetworkAlerter)(float)) {
 }
 
 int main() {
-    int (*Func_Ptr_NetworkAlerter)(float) =&networkAlertStub;
+    int (*Func_Ptr_NetworkAlerter)(float);
+    Func_Ptr_NetworkAlerter  =&networkAlertStub;
     alertInCelcius(400.5,Func_Ptr_NetworkAlerter);
     alertInCelcius(303.6,Func_Ptr_NetworkAlerter);
     assert(alertFailureCount ==1);
