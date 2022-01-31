@@ -27,7 +27,7 @@ float ConvertFarenheitToCelcius( float farenheit){
 
 
 void alertInCelcius(float farenheit, int (*Func_Ptr_NetworkAlerter)(float)) {
-    float celcius = ConvertFarenheitToCelcius(farenheit)
+    float celcius = ConvertFarenheitToCelcius(farenheit);
     int returnCode = Func_Ptr_NetworkAlerter(celcius);
     if (returnCode != 200) {
         // non-ok response is not an error! Issues happen in life!
