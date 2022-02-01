@@ -13,6 +13,10 @@ typedef struct {
 
 ColorPair ActualColorPattern[25];
 
+ColorPair *PtrColorMap = NULL;
+
+PtrColorMap = ActualColorPattern;
+
 int PairIdMismatchCnt = 0;
 int MajorColorMismatchCnt = 0;
 int MinorColorMismatchCnt = 0;
@@ -21,9 +25,9 @@ void ActualColorMap() {
     int i = 0, j = 0;
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
-             ActualColorPattern[i*5+j]->PairID= i*5+j ;
-             strcpy(ActualColorPattern[i*5+j]->MajorColor,majorColor[i] );
-             strcpy(ActualColorPattern[i*5+j]->MinorColor,minorColor[j] );
+             PtrColorMap->PairID= i*5+j ;
+             strcpy(PtrColorMap->MajorColor,majorColor[i] );
+             strcpy(PtrColorMap->MinorColor,minorColor[j] );
         }
     }
 }
