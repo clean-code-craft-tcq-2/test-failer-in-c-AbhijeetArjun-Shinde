@@ -45,15 +45,15 @@ int printColorMap() {
 void FramePrintString( int MajorColorId , int MinorColorId){
     PrintOnConsole( (MajorColorId*5+ MinorColorId) , majorColor[MajorColorId] , minorColor[MajorColorId]);
     // Checking for PairNumber Mismatch
-    if(ActualColorPattern[MajorColorId*5+MajorColorId].PairID != MajorColorId*5+MajorColorId) {
+    if(ActualColorPattern[MajorColorId*5+MinorColorId].PairID != MajorColorId*5+MajorColorId) {
         PairIdMismatchCnt +=1;
     }
     //Checking for Major Color mismatch
-    else if (strcmp(ActualColorPattern[MajorColorId*5+MajorColorId].MajorColor,majorColor[MajorColorId])!=0) {
+    else if (strcmp(ActualColorPattern[MajorColorId*5+MinorColorId].MajorColor,majorColor[MajorColorId])!=0) {
         MajorColorMismatchCnt +=1 ;
     }
     // Checking for minor color mismatch
-    else if(strcmp(ActualColorPattern[MajorColorId*5+MajorColorId].MinorColor,minorColor[MajorColorId])!=0){
+    else if(strcmp(ActualColorPattern[MajorColorId*5+MinorColorId].MinorColor,minorColor[MajorColorId])!=0){
         MinorColorMismatchCnt +=1 ;
     }
     }
