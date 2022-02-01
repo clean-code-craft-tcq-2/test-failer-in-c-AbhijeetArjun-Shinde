@@ -11,7 +11,7 @@ typedef struct {
      char MinorColor[8];
 }ColorPair; 
 
-ColorPair *ActualColorMap[25];
+ColorPair **ActualColorPattern[25];
 
 int PairIdMismatchCnt = 0;
 int MajorColorMismatchCnt = 0;
@@ -21,9 +21,9 @@ void ActualColorMap() {
     int i = 0, j = 0;
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
-             ActualColorMap.PairID[i*5+j]= i*5+j ;
-             strcpy(ActualColorMap.MajorColor[i*5+j],majorColor[i] );
-             strcpy(ActualColorMap.MinorColor[i*5+j],minorColor[j] );
+             ActualColorPattern->PairID[i*5+j]= i*5+j ;
+             strcpy(ActualColorPattern->MajorColor[i*5+j],majorColor[i] );
+             strcpy(ActualColorPattern->MinorColor[i*5+j],minorColor[j] );
         }
     }
 }
@@ -44,15 +44,15 @@ int printColorMap() {
 void PrintStringCreater( int MajorColorId , int MinorColorId){
     PrintOnConsole( (MajorColorId*5+ MinorColorId) , majorColor[MajorColorId] , minorColor[MajorColorId]);
     // Checking for PairNumber Mismatch
-    if(ActualColorMap.PairID[MajorColorId*5+MajorColorId] != MajorColorId*5+MajorColorId) {
+    if(ActualColorPattern->PairID[MajorColorId*5+MajorColorId] != MajorColorId*5+MajorColorId) {
         PairIdMismatchCnt +=1;
     }
     //Checking for Major Color mismatch
-    else if (ActualColorMap.MajorColor[MajorColorId*5+MajorColorId] != majorColor[MajorColorId]) {
+    else if (ActualColorPattern->MajorColor[MajorColorId*5+MajorColorId] != majorColor[MajorColorId]) {
         MajorColorMismatchCnt +=1 ;
     }
     // Checking for minor color mismatch
-    else if(ActualColorMap.MinorColor[MajorColorId*5+MajorColorId] != minorColor[MajorColorId]){
+    else if(ActualColorPattern->MinorColor[MajorColorId*5+MajorColorId] != minorColor[MajorColorId]){
         MinorColorMismatchCnt +=1 ;
     }
     }
