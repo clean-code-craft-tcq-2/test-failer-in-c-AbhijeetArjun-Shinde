@@ -66,9 +66,10 @@ int main() {
     ActualColorMap();
     int result = printColorMap();
     assert(result == 25);
-    assert ( PairIdMismatchCnt ==0);
+    assert (PairIdMismatchCnt == 0);
     assert(MajorColorMismatchCnt == 0);
     assert(MinorColorMismatchCnt == 0);
+    printf("%d %d %d \n", PairIdMismatchCnt , MajorColorMismatchCnt ,MinorColorMismatchCnt );
     printf("All is well (maybe!)\n");
-    return 0;
+    //return 0;
 }
