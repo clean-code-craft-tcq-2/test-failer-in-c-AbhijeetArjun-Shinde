@@ -63,6 +63,7 @@ void PrintOnConsole(int PairNum,const char *MajorColor ,const char *MinorColor){
 }
 
 int main() {
+    ActualColorMap();
     int result = printColorMap();
     assert(result == 25);
     assert ( PairIdMismatchCnt ==0);
