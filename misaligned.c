@@ -11,7 +11,7 @@ typedef struct {
      char MinorColor[8];
 }ColorPair; 
 
-ColorPair **ActualColorPattern[25];
+ColorPair *ActualColorPattern[25];
 
 int PairIdMismatchCnt = 0;
 int MajorColorMismatchCnt = 0;
