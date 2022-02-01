@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
+#include <string.h>
 
 const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
 const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
@@ -13,9 +14,9 @@ typedef struct {
 
 ColorPair ActualColorPattern[25];
 
-ColorPair *PtrColorMap = NULL;
+//ColorPair *PtrColorMap = NULL;
 
-PtrColorMap = ActualColorPattern;
+//PtrColorMap = ActualColorPattern;
 
 int PairIdMismatchCnt = 0;
 int MajorColorMismatchCnt = 0;
@@ -25,9 +26,9 @@ void ActualColorMap() {
     int i = 0, j = 0;
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
-             PtrColorMap->PairID= i*5+j ;
-             strcpy(PtrColorMap->MajorColor,majorColor[i] );
-             strcpy(PtrColorMap->MinorColor,minorColor[j] );
+             ActualColorPattern[i*5 +j].PairID= i*5+j ;
+             strcpy(ActualColorPattern[i*5 +j].MajorColor,majorColor[i] );
+             strcpy(ActualColorPattern[i*5 +j].MinorColor,minorColor[j] );
         }
     }
 }
@@ -48,15 +49,15 @@ int printColorMap() {
 void PrintStringCreater( int MajorColorId , int MinorColorId){
     PrintOnConsole( (MajorColorId*5+ MinorColorId) , majorColor[MajorColorId] , minorColor[MajorColorId]);
     // Checking for PairNumber Mismatch
-    if(ActualColorPattern[MajorColorId*5+MajorColorId]->PairID != MajorColorId*5+MajorColorId) {
+    if(ActualColorPattern[MajorColorId*5+MajorColorId].PairID != MajorColorId*5+MajorColorId) {
         PairIdMismatchCnt +=1;
     }
     //Checking for Major Color mismatch
-    else if (ActualColorPattern[MajorColorId*5+MajorColorId]->MajorColor != majorColor[MajorColorId]) {
+    else if (ActualColorPattern[MajorColorId*5+MajorColorId].MajorColor != majorColor[MajorColorId]) {
         MajorColorMismatchCnt +=1 ;
     }
     // Checking for minor color mismatch
-    else if(ActualColorPattern[MajorColorId*5+MajorColorId]->MinorColor != minorColor[MajorColorId]){
+    else if(ActualColorPattern[MajorColorId*5+MajorColorId].MinorColor != minorColor[MajorColorId]){
         MinorColorMismatchCnt +=1 ;
     }
     }
