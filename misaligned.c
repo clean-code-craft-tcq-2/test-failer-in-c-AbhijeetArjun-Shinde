@@ -59,7 +59,6 @@ void PrintStringCreater( int MajorColorId , int MinorColorId){
 
 void PrintOnConsole(int PairNum,const char *MajorColor ,const char *MinorColor){
     printf("%d | %s | %s\n",PairNum, MajorColor, MinorColor);
-    PrintConsoleFuncCalls +=1;
 }
 
 int main() {
