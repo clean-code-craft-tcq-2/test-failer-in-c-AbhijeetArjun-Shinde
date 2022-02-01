@@ -29,20 +29,20 @@ void ActualColorMap() {
     }
 }
 
-void PrintStringCreator( int MajorColorId , int MinorColorId);
+void FramePrintString( int MajorColorId , int MinorColorId);
 void PrintOnConsole(int PairNum, const char *MajorColor, const char *MinorColor);
 
 int printColorMap() {
     int i = 0, j = 0;
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
-         PrintStringCreator(i,j);  
+         FramePrintString(i,j);  
         }
     }
     return i * j;
 }
 
-void PrintStringCreater( int MajorColorId , int MinorColorId){
+void FramePrintString( int MajorColorId , int MinorColorId){
     PrintOnConsole( (MajorColorId*5+ MinorColorId) , majorColor[MajorColorId] , minorColor[MajorColorId]);
     // Checking for PairNumber Mismatch
     if(ActualColorPattern[MajorColorId*5+MajorColorId].PairID != MajorColorId*5+MajorColorId) {
