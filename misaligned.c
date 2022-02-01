@@ -18,19 +18,15 @@ int PairIdMismatchCnt = 0;
 int MajorColorMismatchCnt = 0;
 int MinorColorMismatchCnt = 0;
 
-void ActualColorMap() {
-    int i = 0, j = 0;
-    for(i = 0; i < 5; i++) {
-        for(j = 0; j < 5; j++) {
+void ActualColorMap( int i , int j );
+void FramePrintString( int MajorColorId , int MinorColorId);
+void PrintOnConsole(int PairNum, const char *MajorColor, const char *MinorColor);
+
+void ActualColorMap( int i , int j ) {
              ActualColorPattern[i*5 +j].PairID= i*5+j ;
              strcpy(ActualColorPattern[i*5 +j].MajorColor,majorColor[i] );
              strcpy(ActualColorPattern[i*5 +j].MinorColor,minorColor[j] );
-        }
-    }
 }
-
-void FramePrintString( int MajorColorId , int MinorColorId);
-void PrintOnConsole(int PairNum, const char *MajorColor, const char *MinorColor);
 
 int printColorMap() {
     int i = 0, j = 0;
@@ -44,8 +40,10 @@ int printColorMap() {
 
 void FramePrintString( int MajorColorId , int MinorColorId){
     PrintOnConsole( (MajorColorId*5+ MinorColorId) , majorColor[MajorColorId] , minorColor[MajorColorId]);
+     
+    ActualColorMap( MajorColorId ,MinorColorId );
     // Checking for PairNumber Mismatch
-    if(ActualColorPattern[MajorColorId*5+MinorColorId].PairID != MajorColorId*5+MajorColorId) {
+    if(ActualColorPattern[MajorColorId*5+MinorColorId].PairID != MajorColorId*5+MinorColorId) {
         PairIdMismatchCnt +=1;
     }
     //Checking for Major Color mismatch
@@ -63,7 +61,7 @@ void PrintOnConsole(int PairNum,const char *MajorColor ,const char *MinorColor){
 }
 
 int main() {
-    ActualColorMap();
+    
     int result = printColorMap();
     assert(result == 25);
     assert (PairIdMismatchCnt == 0);
