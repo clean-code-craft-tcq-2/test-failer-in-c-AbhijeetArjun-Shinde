@@ -14,10 +14,6 @@ typedef struct {
 
 ColorPair ActualColorPattern[25];
 
-//ColorPair *PtrColorMap = NULL;
-
-//PtrColorMap = ActualColorPattern;
-
 int PairIdMismatchCnt = 0;
 int MajorColorMismatchCnt = 0;
 int MinorColorMismatchCnt = 0;
