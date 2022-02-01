@@ -49,11 +49,11 @@ void FramePrintString( int MajorColorId , int MinorColorId){
         PairIdMismatchCnt +=1;
     }
     //Checking for Major Color mismatch
-    else if (ActualColorPattern[MajorColorId*5+MajorColorId].MajorColor != majorColor[MajorColorId]) {
+    else if (strcmp(ActualColorPattern[MajorColorId*5+MajorColorId].MajorColor,majorColor[MajorColorId])!=0) {
         MajorColorMismatchCnt +=1 ;
     }
     // Checking for minor color mismatch
-    else if(ActualColorPattern[MajorColorId*5+MajorColorId].MinorColor != minorColor[MajorColorId]){
+    else if(strcmp(ActualColorPattern[MajorColorId*5+MajorColorId].MinorColor,minorColor[MajorColorId])!=0){
         MinorColorMismatchCnt +=1 ;
     }
     }
