@@ -7,6 +7,7 @@
 int alertFailureCount = 0;
 
 float ConvertFarenheitToCelcius( float farenheit);
+void AssertAlerter(int FailCount);
 
 int networkAlertStub(float celcius) {
     printf("ALERT: Temperature is %.1f celcius.\n", celcius);
@@ -34,16 +35,20 @@ void alertInCelcius(float farenheit, int (*Func_Ptr_NetworkAlerter)(float)) {
         // let us keep a count of failures to report
         // However, this code doesn't count failures!
         // Add a test below to catch this bug. Alter the stub above, if needed.
-        alertFailureCount += 0;      
+        alertFailureCount += 1;      
     }
+}
+
+void AssertAlerter(int FailCount) {
+    assert(alertFailureCount == FailCount);
 }
 
 int main() {
     int (*Func_Ptr_NetworkAlerter)(float);
-    Func_Ptr_NetworkAlerter  =&networkAlertStub;
+    Func_Ptr_NetworkAlerter = &networkAlertStub;
     alertInCelcius(400.5,Func_Ptr_NetworkAlerter);
     alertInCelcius(303.6,Func_Ptr_NetworkAlerter);
-    assert(alertFailureCount ==1);
+    AssertAlerter(1);
     printf("%d alerts failed.\n", alertFailureCount);
     printf("All is well (maybe!)\n");
     return 0;
