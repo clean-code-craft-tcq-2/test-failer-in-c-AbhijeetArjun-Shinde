@@ -23,7 +23,7 @@ void FramePrintString( int MajorColorId , int MinorColorId);
 void PrintOnConsole(int PairNum, const char *MajorColor, const char *MinorColor);
 
 void ActualColorMap( int i , int j ) {
-             ActualColorPattern[i*5 +j].PairID= i*5+j ;
+             ActualColorPattern[i*5 +j].PairID= i*5+j+1 ;
              strcpy(ActualColorPattern[i*5 +j].MajorColor,majorColor[i] );
              strcpy(ActualColorPattern[i*5 +j].MinorColor,minorColor[j] );
 }
@@ -39,7 +39,7 @@ int printColorMap() {
 }
 
 void FramePrintString( int MajorColorId , int MinorColorId){
-    PrintOnConsole( (MajorColorId*5+ MinorColorId) , majorColor[MajorColorId] , minorColor[MajorColorId]);
+    PrintOnConsole( (MajorColorId*5+ MinorColorId+1) , majorColor[MajorColorId] , minorColor[MinorColorId]);
      
     ActualColorMap( MajorColorId ,MinorColorId );
     // Checking for PairNumber Mismatch
@@ -60,13 +60,20 @@ void PrintOnConsole(int PairNum,const char *MajorColor ,const char *MinorColor){
     printf("%d | %s | %s\n",PairNum, MajorColor, MinorColor);
 }
 
+void CheckColorManual(int result){
+    assert(result == 25);
+    assert (PairIdMismatchCnt == 0);
+    assert (MajorColorMismatchCnt == 0);
+    assert (MinorColorMismatchCnt == 0); 
+    assert(ActualColorPattern[6].PairID == 6);
+    assert(strcmp(ActualColorPattern[6].MajorColor,"Red") == 0);
+    assert(strcmp(ActualColorPattern[6].MinorColor,"Blue") == 0);
+}
+
 int main() {
     
     int result = printColorMap();
-    assert(result == 25);
-    assert (PairIdMismatchCnt == 0);
-    assert(MajorColorMismatchCnt == 0);
-    assert(MinorColorMismatchCnt == 0);
+    CheckColorManual(result);
     printf("All is well (maybe!)\n");
     return 0;
 }
